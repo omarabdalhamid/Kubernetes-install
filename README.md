@@ -8,4 +8,4 @@ wget https://raw.githubusercontent.com/omarabdalhamid/Kubernetes-install/master/
 
 Node Installation
 
-wget https://raw.githubusercontent.com/omarabdalhamid/Kubernetes-install/master/knode.sh  && sh knode.sh
+wget https://raw.githubusercontent.com/omarabdalhamid/Kubernetes-install/master/knode1.sh  && sh knode.sh
