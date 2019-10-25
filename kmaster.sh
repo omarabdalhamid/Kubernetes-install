@@ -1,9 +1,6 @@
 #!/bin/bash
 apt-get update -y
 
-hostname kmaster
-
-
 apt-get install \
     apt-transport-https \
     ca-certificates \
