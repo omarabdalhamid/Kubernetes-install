@@ -1,7 +1,6 @@
 #!/bin/bash
 apt-get update -y
 
-hostname knode2
 
 apt-get install \
     apt-transport-https \
@@ -70,4 +69,6 @@ apt-get update
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
 
-kubeadm join --discovery-token-unsafe-skip-ca-verification --token=102952.1a7dd4cc8d1f4cc5 172.31.11.255:6443
+#kubeadm join --discovery-token-unsafe-skip-ca-verification --token=102952.1a7dd4cc8d1f4cc5 172.31.11.255:6443
+kubeadm join 192.168.1.202:6443 --token 102952.1a7dd4cc8d1f4cc5 \
+    --discovery-token-ca-cert-hash sha256:a3fff3ba00ff9cceefa4dd26ca2a19eee6891a90e9659473cd0ed77cea0e5991 
