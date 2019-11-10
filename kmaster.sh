@@ -9,6 +9,8 @@ apt-get install \
 
 apt install ntp -y
 
+apt install libltdl7 -y
+
 service ntp start
 systemctl enable ntp
 
