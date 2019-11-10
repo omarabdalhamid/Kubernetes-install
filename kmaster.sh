@@ -12,14 +12,17 @@ apt install ntp -y
 service ntp start
 systemctl enable ntp
 
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
-    && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" \
-    && sudo apt-get update \
-    && sudo apt-get install docker-ce=18.03.1~ce-0~ubuntu -yq
-
-sudo add-apt-repository universe -y
+#curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
+#    && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" \
+#    && sudo apt-get update \
+#    && sudo apt-get install docker-ce=18.03.1~ce-0~ubuntu -yq
+sudo  wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_18.09.0~3-0~ubuntu-bionic_amd64.deb
+sudo  dpkg -i  docker-ce-cli_18.09.0~3-0~ubuntu-bionic_amd64.deb
+sudo  add-apt-repository universe -y
 
 apt-get install docker-compose -y
+
+
 
 
 curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
