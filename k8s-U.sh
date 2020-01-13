@@ -33,7 +33,7 @@ printf "Step 2/7 --  Install [ Docker 19.03   ]...\n\n"
 
 # Install Docker CE
 ### Add Docker official GPG key
-sudo su -c curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+sudo su -c 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -'
 
 ### Add Docker apt repository.
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
