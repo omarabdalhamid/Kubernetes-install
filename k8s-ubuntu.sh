@@ -2,7 +2,7 @@
 ################################################################################
 # Script for installing kubernetes on Ubuntu  16.04 and 18.04 
 # Author: OmarAbdalhamid Omar
-# Mial : o.abdalhamid@zinad.net
+# Mail : o.abdalhamid@zinad.net
 # Mob : +0201111095001
 #-------------------------------------------------------------------------------
 # This script will install Kubernetes on your Ubuntu 18.04 server. I
@@ -15,37 +15,25 @@
 # ./Kubernetes-install.sh
 ################################################################################
 
-sudo apt install shellcheck
-
-sudo shellcheck ./k8s-ubuntu.sh
-
-
 printf "\n  Step 1/7 -- Update Ubuntu and install [ transport-https  // ca-certificates  // Git // Curl //  software-properties-common  ]...\n\n"
 
 sudo apt-get update -y
-
 sudo apt-get install apt-transport-https -y
 sudo apt-get install ca-certificates -y
 sudo apt-get install curl -y
 sudo apt-get install git -y
 sudo apt-get install wget  -y
 sudo apt-get install software-properties-common -y
-
 sudo apt install ntp -y
-
 sudo apt install libltdl7 -y
-
 sudo service ntp start
 sudo systemctl enable ntp
 
 printf "Step 2/7 --  Install [ Docker 19.03   ]...\n\n"
 
 # Install Docker CE
-## Set up the repository:
-### Install packages to allow apt to use a repository over HTTPS
-
 ### Add Docker official GPG key
-sudo su -c 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -'
+sudo su -c curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 ### Add Docker apt repository.
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -125,5 +113,16 @@ sudo kubectl apply -f dashboard.yaml
 printf "\n Step 7/7 --  Check Kubenetes Cluster Info   ]...\n\n"
 
 sudo kubectl cluster-info
+
+check_dns=$(curl -s -o /dev/null -w "%{http_code}" localhost:6443)
+check_dashboard=$(curl -s -o /dev/null -w "%{http_code}" localhost:31000)
+
+if [ "$check_dns" -eq 400 ] && [ "$check_dashboard" -eq 400  ]
+    then
+       echo "kubernetes cluster works fine "
+       echo "Run Zisoft Deploy script here"
+    else 
+       echo "Error : Kubernetes Installation"
+fi
 
 printf "\n Done \n\n"
