@@ -100,7 +100,7 @@ sudo cp -i /etc/kubernetes/admin.conf "$HOME"/.kube/config
 sudo chown "$(id -u):$(id -g)" "$HOME"/.kube/config
 export KUBECONFIG=$HOME/admin.conf
 
-sleep 1m
+sleep 30
 
 sudo kubectl taint nodes --all node-role.kubernetes.io/master-
 
@@ -114,6 +114,7 @@ printf "\n Step 7/7 --  Check Kubenetes Cluster Info   ]...\n\n"
 
 sudo kubectl cluster-info
 
+sleep 60
 check_dns=$(curl -s -o /dev/null -w "%{http_code}" localhost:6443)
 check_dashboard=$(curl -s -o /dev/null -w "%{http_code}" localhost:31000)
 
