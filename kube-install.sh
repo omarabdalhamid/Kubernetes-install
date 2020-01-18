@@ -160,8 +160,8 @@ if [ "$SHELL_RESULT" != "0" ]; then
 else
     echo "Successfull:  Shell Unit test"
     zisoft_kube_installation_ubuntu
+fi
 }
-
 awareness_installation_centos(){
 zisoft_kube_installation_centos(){
 
