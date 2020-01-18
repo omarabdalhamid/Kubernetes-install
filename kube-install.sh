@@ -148,7 +148,7 @@ printf "\n Done \n\n"
 
 sudo snap install shellcheck
 
-shellcheck ubuntu-kube.sh
+shellcheck kube-install.sh
 
 SHELL_RESULT="$?"
 
@@ -300,7 +300,7 @@ sudo yum install epel-release -y
 
 sudo yum install ShellCheck -y
 
-shellcheck centos-kube.sh
+shellcheck kube-install.sh
 
 SHELL_RESULT_CENTOS="$?"
 
