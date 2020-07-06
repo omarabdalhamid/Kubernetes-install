@@ -14,6 +14,7 @@ sudo apt install ntp -y
 sudo apt install npm -y
 sudo apt install libltdl7 -y
 
+sudo apt install npm -y
 sudo service ntp start
 sudo systemctl enable ntp
 
@@ -60,7 +61,7 @@ sudo usermod -aG docker "${USER}"
 
 sudo service docker start
 sudo systemctl enable docker 
-sudo apt install docker-compose
+sudo apt install docker-compose -y
 
 # Restart docker.
 sudo systemctl daemon-reload
