@@ -60,6 +60,7 @@ sudo usermod -aG docker "${USER}"
 
 sudo service docker start
 sudo systemctl enable docker 
+sudo apt install docker-compose
 
 # Restart docker.
 sudo systemctl daemon-reload
